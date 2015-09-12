@@ -1,24 +1,26 @@
 'use strict';
 
-var express = require('express')
-  , todorouter = express()
-  , riot = require('riot')
-  , todoComponent = require('../components/todo-app.tag')
-  , cons = require('consolidate')
+import express from 'express'
+import riot from 'riot'
+import todoComponent from '../components/todo-app.tag'
+import cons from 'consolidate'
+
+const TodoRouter = express()
 
 // set .html as the default extension
-todorouter.set('view engine', 'html')
+TodoRouter.set('view engine', 'html')
 
 // assign the swig engine to .html files
-todorouter.engine('html', cons.swig)
+TodoRouter.engine('html', cons.swig)
 
-todorouter.set('views', __dirname + '/views')
+TodoRouter.set('views', __dirname + '/views')
 
-todorouter.get('/', function(req, res) {
-  var component = riot.render(todoComponent, { title: 'My Osom title'} )
-  res.render('layouts/main', {component: component})
+TodoRouter.get('/', function(req, res) {
+  var title = 'My OSOM title'
+  var component = riot.render(todoComponent, { title: title} )
+  res.render('layouts/main', {component: component, title: title})
 });
 
-module.exports = todorouter
+export default TodoRouter
 
   

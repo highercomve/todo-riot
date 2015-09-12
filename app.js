@@ -1,4 +1,5 @@
 'use strict';
+require('babel/register');  
 
 var riot = require('riot'),
     express = require('express'),
@@ -12,7 +13,7 @@ var paths = [
 ]
 
 browserify.settings({
-  transform: ['riotify']
+  transform: ['riotify', 'babelify']
 });
 
 //provide browserified versions of all the files in a directory

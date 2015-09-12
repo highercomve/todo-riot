@@ -1,6 +1,6 @@
 'use strict';
 
-var riot = require('riot')
-var todoComponent = require('../../components/todo-app.tag')
+import riot from 'riot'
+import todoComponent from '../../components/todo-app.tag'
 
-riot.mount('*')
+riot.mount('*', window.__INITIAL_STATE__)
