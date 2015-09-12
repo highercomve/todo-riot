@@ -1,0 +1,23 @@
+{
+  "name": "todo-on-riat",
+  "version": "0.0.1",
+  "description": "Todo appliaction build on riot",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergio Marin higher.vnf@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^5.8.24",
+    "browserify": "^11.1.0",
+    "browserify-middleware": "^7.0.0",
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
+    "nodemon": "^1.4.1",
+    "riot": "^2.2.4",
+    "riotify": "^0.1.2",
+    "swig": "^1.4.2"
+  }
+}
