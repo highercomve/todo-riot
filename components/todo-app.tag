@@ -1,21 +1,33 @@
 <todo>
-
 	<!-- layout -->
-	<h1>{ opts.title }</h1>
+	<h1>Todo App</h1>
 
-	<ul>
-		<li each={ item, i in items }>{ item }</li>
+	<ul class="task-list">
+		<task each="{ task, i in items }" data="{task}"></task>
 	</ul>
 
-	<form onsubmit={ add }>
-		<input>
-		<button>Add #{ items.length + 1 }</button>
-	</form>
-
+	<task-form></task-form>
 	<!-- style -->
 	<style scoped>
-		h3 {
-			font-size: 14px;
+		:scope {
+			display: block;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			margin: 10em auto;
+			width: 400px;
+		}
+		@media screen and (max-width: 780px) {
+			:scope {
+				margin: 2em auto;
+				width: 90%;
+			}
+		}
+
+		.task-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			transition: all 500ms ease;
 		}
 	</style>
 
@@ -23,10 +35,16 @@
 	<script>
 	this.items = []
 
-	add(e) {
-		var input = e.target[0]
-			this.items.push(input.value)
-			input.value = ''
+	this.on('mount', ()=> {
+		this.updateItems()
+		TodoStore.onChange(() => {
+			this.updateItems()
+		})
+	})
+
+	updateItems() {
+		this.items = TodoStore.getAll()
+		this.update();
 	}
 	</script>
 

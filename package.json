@@ -16,10 +16,16 @@
     "browserify": "^11.1.0",
     "browserify-middleware": "^7.0.0",
     "consolidate": "^0.13.1",
+    "del": "^2.0.2",
     "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-serve": "^1.2.0",
+    "node-uuid": "^1.4.3",
     "nodemon": "^1.4.1",
     "riot": "^2.2.4",
     "riotify": "^0.1.2",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
